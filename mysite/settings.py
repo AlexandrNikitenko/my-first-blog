@@ -25,7 +25,11 @@ SECRET_KEY = 'y2mvac_s8um1hri6px#qaloth%(v574bolzv!4tgg8qk733-!)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['alexghost.pythonanywhere.com']
+=======
+ALLOWED_HOSTS = ["alexghost.pythonanywhere.com"]
+>>>>>>> a12330d6f68d62f4515aef806a6bc6286ebb5734
 
 
 # Application definition
