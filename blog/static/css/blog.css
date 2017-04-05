@@ -3,6 +3,10 @@ h1 a {
 	font-family: 'Lobster', cursive;
 }
 
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Lobster', cursive;
+}
+
 .page-header {
     background: linear-gradient(to left, #c33764, #1d2671);
     margin-top: 0;
