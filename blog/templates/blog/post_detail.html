@@ -17,4 +17,22 @@
                 {{ post.published_date }}
             </div>
         </div>
-    {% endblock %}
+        <hr>
+        <p style="float: left; font-family:'Lobster', cursive; font-size:25px;margin-bottom:20px;text-decoration: underline;">Comments:</p>
+        <a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=post.pk %}" style="float: right;">Add comment</a>
+        {% for comment in post.comments.all %}
+            {% if user.is_authenticated or comment.approved_comment %}
+                <div class="comment" style="clear: both;margin-top: 25px;">
+                    <div class="date">
+                    {{ comment.created_date }}
+                    {% if not comment.approved_comment %}
+                        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                        <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                    {% endif %}
+                    </div>
+                    <strong style="font-size:20px; font-family: 'Roboto Condensed', sans-serif; color: blue;">{{ comment.author }}</strong>
+                    <p style="font-family: 'Roboto Condensed', sans-serif;">{{ comment.text|linebreaks }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}    
